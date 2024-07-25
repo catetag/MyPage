@@ -1,0 +1,147 @@
+﻿@model MyPage.Models.HotelRooms
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HotelRooms</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FKHotelID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKHotelID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Images)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Images)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OperatorRoomCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OperatorRoomCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PMSRoomCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PMSRoomCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomBonus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomBonus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecorderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecorderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecorderUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecorderUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SortOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SortOrder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookeraVerilebilir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookeraVerilebilir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxAdult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxAdult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxChild)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxChild)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxInfant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxInfant)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PKID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,152 @@
+﻿@model IEnumerable<MyPage.Models.Reservations>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Edit Section</th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKCompanyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKBookerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKHotelID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKOperatorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VoucherNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckInDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckOutDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecorderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecorderUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifierDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifierUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPoints)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPromotionPoints)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExtraPayment)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <ul>
+                <li>@Html.ActionLink("Edit", "Edit", new { id = item.PKID })</li>
+                <li>@Html.ActionLink("Details", "Details", new { id = item.PKID })</li>
+                <li>@Html.ActionLink("Delete", "Delete", new { id = item.PKID })</li>
+            </ul>            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKCompanyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKBookerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKHotelID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKOperatorID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VoucherNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckInDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckOutDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservationStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecorderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecorderUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifierDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifierUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPoints)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPromotionPoints)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExtraPayment)
+        </td>
+
+    </tr>
+}
+
+</table>

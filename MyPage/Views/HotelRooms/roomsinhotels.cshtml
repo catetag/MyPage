@@ -1,0 +1,139 @@
+﻿@model IEnumerable<MyPage.Models.HotelRooms>
+@{
+    ViewBag.Title = "HotelRooms";
+    Layout = "";
+
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<table class="table">
+    <tr>
+        <th>Edit Selection</th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKHotelID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Images)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OperatorRoomCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PMSRoomCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecorderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecorderUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifierDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifierUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SortOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookeraVerilebilir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxAdult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxChild)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxInfant)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+
+                <a href="@Url.Action("Edit", new { id = item.PKID })" target="_blank"><i class="bi bi-pencil"></i></a>
+                <a href="@Url.Action("Details", new { id = item.PKID })" target="_blank"><i class="bi bi-clipboard2"></i></a>
+                <a href="@Url.Action("Delete", new { id = item.PKID })" target="_blank"><i class="bi bi-trash3"></i></a>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FKHotelID)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomName)
+            </td>
+            <td>
+                <iframe srcdoc='@Html.Raw(item.Description)'></iframe>
+
+            </td>
+            <td>
+
+                @{
+                    var hotelimg = item.Images as string;
+                    if (!string.IsNullOrEmpty(hotelimg) && hotelimg.Length > 40)
+                    {
+                        hotelimg = hotelimg.Substring(0, 40);
+                    }
+                }
+                @Html.DisplayFor(modelItem => hotelimg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OperatorRoomCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PMSRoomCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomBonus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecorderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecorderUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifierDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifierUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortOrder)
+            </td>
+            <td>
+
+                <p>Bookera Verilebiir:</p><input type="checkbox" checked="@(item.BookeraVerilebilir == true)">
+                <p>Bookera Verilemez:</p>
+                <input type="checkbox" checked="@(item.BookeraVerilebilir == false)">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxAdult)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxChild)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxInfant)
+            </td>
+        </tr>
+    }
+
+</table>

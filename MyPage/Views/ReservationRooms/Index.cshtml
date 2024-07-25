@@ -1,0 +1,168 @@
+﻿@model IEnumerable<MyPage.Models.ReservationRooms>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Edit Section</th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKReservationID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKHotelID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKHotelRoomID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdultCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChildCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InfantCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BonusPoints)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecorderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecorderUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifierDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifierUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckinDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckoutDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PromotionPoints)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceResult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusUpdateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatchByName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxAdult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxChild)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxInfant)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <ul>
+                <li>@Html.ActionLink("Edit", "Edit", new { id = item.PKID })</li>
+                <li>@Html.ActionLink("Details", "Details", new { id = item.PKID })</li>
+                <li>@Html.ActionLink("Delete", "Delete", new { id = item.PKID })</li>
+            </ul>            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKReservationID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKHotelID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKHotelRoomID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdultCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChildCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InfantCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BonusPoints)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecorderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecorderUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifierDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifierUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckinDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckoutDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PromotionPoints)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceResult)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusUpdateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatchByName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxAdult)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxChild)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxInfant)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.PKID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PKID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PKID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<MyPage.Models.Messages>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Edit Selection</th>
+        <th>
+            @Html.DisplayNameFor(model => model.FK_ReservationID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FK_HotelID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reciever)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Files)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ilgili)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecordDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td> 
+            <ul>
+                <li>@Html.ActionLink("Edit", "Edit", new { id = item.PKID })</li>
+                <li>@Html.ActionLink("Details", "Details", new { id = item.PKID })</li>
+                <li>@Html.ActionLink("Delete", "Delete", new { id = item.PKID })</li>
+            </ul>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FK_ReservationID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FK_HotelID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reciever)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Files)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ilgili)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecordDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+
+    </tr>
+}
+
+</table>

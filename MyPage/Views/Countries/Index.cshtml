@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MyPage.Models.Countries>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Edit Selection</th>
+        <th>
+            @Html.DisplayNameFor(model => model.country_2_digit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.country_3_digit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.country_numeric_code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ui_language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_English)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_Turkce)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <ul>
+                <li>@Html.ActionLink("Edit", "Edit", new { id = item.PKID })</li>
+                <li>@Html.ActionLink("Details", "Details", new { id = item.PKID })</li>
+                <li>@Html.ActionLink("Delete", "Delete", new { id = item.PKID })</li>
+            </ul>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.country_2_digit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.country_3_digit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.country_numeric_code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ui_language)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_English)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_Turkce)
+        </td>
+
+    </tr>
+}
+
+</table>

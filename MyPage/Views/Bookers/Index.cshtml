@@ -1,0 +1,221 @@
+﻿@model IEnumerable<MyPage.Models.Bookers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Edit Selection
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKCompanyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelGroupCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobilePhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecorderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecorderUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifierDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifierUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyWebAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyLicence)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyOwner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConfirmKVVK)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td> 
+            <ul>
+                <li>@Html.ActionLink("Edit", "Edit", new { id = item.PKID })</li>
+                <li>@Html.ActionLink("Details", "Details", new { id = item.PKID })</li>
+                <li>@Html.ActionLink("Delete", "Delete", new { id = item.PKID })</li>
+            </ul>
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKCompanyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HotelGroupCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobilePhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecorderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecorderUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifierDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifierUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Role)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyWebAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyLicence)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyOwner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyZipCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyCountry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConfirmKVVK)
+        </td>
+
+    </tr>
+}
+
+</table>

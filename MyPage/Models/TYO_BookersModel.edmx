@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TYO_BookersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Answers">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_MessageID" Type="int" />
+          <Property Name="Sender" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Files" Type="nvarchar(max)" />
+          <Property Name="RecordedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Bookers">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKCompanyID" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelGroupCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobilePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="250" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="250" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecorderDate" Type="datetime" />
+          <Property Name="RecorderUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifierDate" Type="datetime" />
+          <Property Name="ModifierUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgencyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgencyEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgencyWebAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgencyAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgencyPhone" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgencyLicence" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgencyOwner" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgencyZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgencyCity" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgencyCountry" Type="nvarchar" MaxLength="100" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConfirmKVVK" Type="bit" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="FKCommunityID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobilePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPersonPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="250" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="250" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="RecorderDate" Type="datetime" />
+          <Property Name="RecorderUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifierDate" Type="datetime" />
+          <Property Name="ModifierUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LicenceNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="OwnerName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="country_2_digit" Type="nvarchar" MaxLength="10" />
+          <Property Name="country_3_digit" Type="nvarchar" MaxLength="10" />
+          <Property Name="country_numeric_code" Type="int" />
+          <Property Name="ui_language" Type="nvarchar" MaxLength="10" />
+          <Property Name="Name_English" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_Turkce" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HotelRooms">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKHotelID" Type="int" />
+          <Property Name="RoomName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Images" Type="nvarchar(max)" />
+          <Property Name="OperatorRoomCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="PMSRoomCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoomBonus" Type="money" />
+          <Property Name="RecorderDate" Type="datetime" />
+          <Property Name="RecorderUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifierDate" Type="datetime" />
+          <Property Name="ModifierUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="SortOrder" Type="int" />
+          <Property Name="BookeraVerilebilir" Type="bit" />
+          <Property Name="MaxAdult" Type="int" />
+          <Property Name="MaxChild" Type="int" />
+          <Property Name="MaxInfant" Type="int" />
+        </EntityType>
+        <EntityType Name="Hotels">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HotelName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="FKHotelGroupCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobilePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelGeneralManagerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelGeneralManagerEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelGeneralManagerPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelContactPerson1Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelContactPerson1Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelContactPerson1Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelContactPerson1Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelContactPerson2Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelContactPerson2Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelContactPerson2Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelContactPerson2Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="250" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="250" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelBonus" Type="money" />
+          <Property Name="RecorderDate" Type="datetime" />
+          <Property Name="RecorderUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifierDate" Type="datetime" />
+          <Property Name="ModifierUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="HotelPic" Type="nvarchar" MaxLength="500" />
+          <Property Name="SortOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_ReservationID" Type="int" />
+          <Property Name="FK_HotelID" Type="int" />
+          <Property Name="Sender" Type="nvarchar(max)" />
+          <Property Name="Reciever" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Files" Type="nvarchar(max)" />
+          <Property Name="ilgili" Type="nvarchar(max)" />
+          <Property Name="RecordDate" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ReservationRooms">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKReservationID" Type="int" />
+          <Property Name="FKHotelID" Type="int" />
+          <Property Name="FKHotelRoomID" Type="int" />
+          <Property Name="AdultCount" Type="int" />
+          <Property Name="ChildCount" Type="int" />
+          <Property Name="InfantCount" Type="int" />
+          <Property Name="BonusPoints" Type="money" />
+          <Property Name="RecorderDate" Type="datetime" />
+          <Property Name="RecorderUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifierDate" Type="datetime" />
+          <Property Name="ModifierUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoomStatus" Type="int" />
+          <Property Name="CheckinDate" Type="datetime" />
+          <Property Name="CheckoutDate" Type="datetime" />
+          <Property Name="PromotionPoints" Type="money" Nullable="false" />
+          <Property Name="RoomCount" Type="int" Nullable="false" />
+          <Property Name="ServiceResult" Type="int" />
+          <Property Name="StatusUpdateDate" Type="datetime" />
+          <Property Name="MatchByName" Type="bit" />
+          <Property Name="MaxAdult" Type="int" />
+          <Property Name="MaxChild" Type="int" />
+          <Property Name="MaxInfant" Type="int" />
+        </EntityType>
+        <EntityType Name="Reservations">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKCompanyID" Type="int" />
+          <Property Name="FKBookerID" Type="int" />
+          <Property Name="FKHotelID" Type="int" />
+          <Property Name="FKOperatorID" Type="int" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="VoucherNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoomCount" Type="int" />
+          <Property Name="BookingDate" Type="datetime" />
+          <Property Name="CheckInDate" Type="datetime" />
+          <Property Name="CheckOutDate" Type="datetime" />
+          <Property Name="ReservationStatus" Type="int" Nullable="false" />
+          <Property Name="RecorderDate" Type="datetime" />
+          <Property Name="RecorderUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifierDate" Type="datetime" />
+          <Property Name="ModifierUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalPoints" Type="money" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="TotalPromotionPoints" Type="money" Nullable="false" />
+          <Property Name="ExtraPayment" Type="money" />
+        </EntityType>
+        <EntityContainer Name="TYO_BookersModelStoreContainer">
+          <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bookers" EntityType="Self.Bookers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelRooms" EntityType="Self.HotelRooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hotels" EntityType="Self.Hotels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReservationRooms" EntityType="Self.ReservationRooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TYO_BookersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Answers">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_MessageID" Type="Int32" />
+          <Property Name="Sender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Files" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RecordedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Bookers">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKCompanyID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobilePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecorderDate" Type="DateTime" Precision="3" />
+          <Property Name="RecorderUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifierDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyWebAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyLicence" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyOwner" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyCity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyCountry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmKVVK" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="FKCommunityID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WebAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobilePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPersonPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RecorderDate" Type="DateTime" Precision="3" />
+          <Property Name="RecorderUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifierDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LicenceNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="country_2_digit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="country_3_digit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="country_numeric_code" Type="Int32" />
+          <Property Name="ui_language" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name_English" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Turkce" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HotelRooms">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKHotelID" Type="Int32" />
+          <Property Name="RoomName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OperatorRoomCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PMSRoomCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoomBonus" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RecorderDate" Type="DateTime" Precision="3" />
+          <Property Name="RecorderUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifierDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" />
+          <Property Name="BookeraVerilebilir" Type="Boolean" />
+          <Property Name="MaxAdult" Type="Int32" />
+          <Property Name="MaxChild" Type="Int32" />
+          <Property Name="MaxInfant" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Hotels">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HotelName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="FKHotelGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WebAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobilePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelGeneralManagerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelGeneralManagerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelGeneralManagerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelContactPerson1Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelContactPerson1Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelContactPerson1Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelContactPerson1Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelContactPerson2Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelContactPerson2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelContactPerson2Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelContactPerson2Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelBonus" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RecorderDate" Type="DateTime" Precision="3" />
+          <Property Name="RecorderUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifierDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HotelPic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_ReservationID" Type="Int32" />
+          <Property Name="FK_HotelID" Type="Int32" />
+          <Property Name="Sender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Reciever" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Files" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ilgili" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RecordDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ReservationRooms">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKReservationID" Type="Int32" />
+          <Property Name="FKHotelID" Type="Int32" />
+          <Property Name="FKHotelRoomID" Type="Int32" />
+          <Property Name="AdultCount" Type="Int32" />
+          <Property Name="ChildCount" Type="Int32" />
+          <Property Name="InfantCount" Type="Int32" />
+          <Property Name="BonusPoints" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RecorderDate" Type="DateTime" Precision="3" />
+          <Property Name="RecorderUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifierDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoomStatus" Type="Int32" />
+          <Property Name="CheckinDate" Type="DateTime" Precision="3" />
+          <Property Name="CheckoutDate" Type="DateTime" Precision="3" />
+          <Property Name="PromotionPoints" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="RoomCount" Type="Int32" Nullable="false" />
+          <Property Name="ServiceResult" Type="Int32" />
+          <Property Name="StatusUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="MatchByName" Type="Boolean" />
+          <Property Name="MaxAdult" Type="Int32" />
+          <Property Name="MaxChild" Type="Int32" />
+          <Property Name="MaxInfant" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Reservations">
+          <Key>
+            <PropertyRef Name="PKID" />
+          </Key>
+          <Property Name="PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKCompanyID" Type="Int32" />
+          <Property Name="FKBookerID" Type="Int32" />
+          <Property Name="FKHotelID" Type="Int32" />
+          <Property Name="FKOperatorID" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VoucherNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoomCount" Type="Int32" />
+          <Property Name="BookingDate" Type="DateTime" Precision="3" />
+          <Property Name="CheckInDate" Type="DateTime" Precision="3" />
+          <Property Name="CheckOutDate" Type="DateTime" Precision="3" />
+          <Property Name="ReservationStatus" Type="Int32" Nullable="false" />
+          <Property Name="RecorderDate" Type="DateTime" Precision="3" />
+          <Property Name="RecorderUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifierDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifierUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalPoints" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalPromotionPoints" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ExtraPayment" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityContainer Name="TYO_BookersEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Answers" EntityType="Self.Answers" />
+          <EntitySet Name="Bookers" EntityType="Self.Bookers" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" />
+          <EntitySet Name="HotelRooms" EntityType="Self.HotelRooms" />
+          <EntitySet Name="Hotels" EntityType="Self.Hotels" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" />
+          <EntitySet Name="ReservationRooms" EntityType="Self.ReservationRooms" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservations" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TYO_BookersModelStoreContainer" CdmEntityContainer="TYO_BookersEntities">
+          <EntitySetMapping Name="Answers">
+            <EntityTypeMapping TypeName="TYO_BookersModel.Answers">
+              <MappingFragment StoreEntitySet="Answers">
+                <ScalarProperty Name="PKID" ColumnName="PKID" />
+                <ScalarProperty Name="FK_MessageID" ColumnName="FK_MessageID" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Files" ColumnName="Files" />
+                <ScalarProperty Name="RecordedDate" ColumnName="RecordedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bookers">
+            <EntityTypeMapping TypeName="TYO_BookersModel.Bookers">
+              <MappingFragment StoreEntitySet="Bookers">
+                <ScalarProperty Name="PKID" ColumnName="PKID" />
+                <ScalarProperty Name="FKCompanyID" ColumnName="FKCompanyID" />
+                <ScalarProperty Name="HotelGroupCode" ColumnName="HotelGroupCode" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="RecorderDate" ColumnName="RecorderDate" />
+                <ScalarProperty Name="RecorderUser" ColumnName="RecorderUser" />
+                <ScalarProperty Name="ModifierDate" ColumnName="ModifierDate" />
+                <ScalarProperty Name="ModifierUser" ColumnName="ModifierUser" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="AgencyName" ColumnName="AgencyName" />
+                <ScalarProperty Name="AgencyEmail" ColumnName="AgencyEmail" />
+                <ScalarProperty Name="AgencyWebAddress" ColumnName="AgencyWebAddress" />
+                <ScalarProperty Name="AgencyAddress" ColumnName="AgencyAddress" />
+                <ScalarProperty Name="AgencyPhone" ColumnName="AgencyPhone" />
+                <ScalarProperty Name="AgencyLicence" ColumnName="AgencyLicence" />
+                <ScalarProperty Name="AgencyOwner" ColumnName="AgencyOwner" />
+                <ScalarProperty Name="AgencyZipCode" ColumnName="AgencyZipCode" />
+                <ScalarProperty Name="AgencyCity" ColumnName="AgencyCity" />
+                <ScalarProperty Name="AgencyCountry" ColumnName="AgencyCountry" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ConfirmKVVK" ColumnName="ConfirmKVVK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="TYO_BookersModel.Companies">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="PKID" ColumnName="PKID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="FKCommunityID" ColumnName="FKCommunityID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="ContactPersonPhone" ColumnName="ContactPersonPhone" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="RecorderDate" ColumnName="RecorderDate" />
+                <ScalarProperty Name="RecorderUser" ColumnName="RecorderUser" />
+                <ScalarProperty Name="ModifierDate" ColumnName="ModifierDate" />
+                <ScalarProperty Name="ModifierUser" ColumnName="ModifierUser" />
+                <ScalarProperty Name="LicenceNumber" ColumnName="LicenceNumber" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="TYO_BookersModel.Countries">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="PKID" ColumnName="PKID" />
+                <ScalarProperty Name="country_2_digit" ColumnName="country_2_digit" />
+                <ScalarProperty Name="country_3_digit" ColumnName="country_3_digit" />
+                <ScalarProperty Name="country_numeric_code" ColumnName="country_numeric_code" />
+                <ScalarProperty Name="ui_language" ColumnName="ui_language" />
+                <ScalarProperty Name="Name_English" ColumnName="Name_English" />
+                <ScalarProperty Name="Name_Turkce" ColumnName="Name_Turkce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelRooms">
+            <EntityTypeMapping TypeName="TYO_BookersModel.HotelRooms">
+              <MappingFragment StoreEntitySet="HotelRooms">
+                <ScalarProperty Name="PKID" ColumnName="PKID" />
+                <ScalarProperty Name="FKHotelID" ColumnName="FKHotelID" />
+                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="OperatorRoomCode" ColumnName="OperatorRoomCode" />
+                <ScalarProperty Name="PMSRoomCode" ColumnName="PMSRoomCode" />
+                <ScalarProperty Name="RoomBonus" ColumnName="RoomBonus" />
+                <ScalarProperty Name="RecorderDate" ColumnName="RecorderDate" />
+                <ScalarProperty Name="RecorderUser" ColumnName="RecorderUser" />
+                <ScalarProperty Name="ModifierDate" ColumnName="ModifierDate" />
+                <ScalarProperty Name="ModifierUser" ColumnName="ModifierUser" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="BookeraVerilebilir" ColumnName="BookeraVerilebilir" />
+                <ScalarProperty Name="MaxAdult" ColumnName="MaxAdult" />
+                <ScalarProperty Name="MaxChild" ColumnName="MaxChild" />
+                <ScalarProperty Name="MaxInfant" ColumnName="MaxInfant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hotels">
+            <EntityTypeMapping TypeName="TYO_BookersModel.Hotels">
+              <MappingFragment StoreEntitySet="Hotels">
+                <ScalarProperty Name="PKID" ColumnName="PKID" />
+                <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="FKHotelGroupCode" ColumnName="FKHotelGroupCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="HotelGeneralManagerName" ColumnName="HotelGeneralManagerName" />
+                <ScalarProperty Name="HotelGeneralManagerEmail" ColumnName="HotelGeneralManagerEmail" />
+                <ScalarProperty Name="HotelGeneralManagerPhone" ColumnName="HotelGeneralManagerPhone" />
+                <ScalarProperty Name="HotelContactPerson1Title" ColumnName="HotelContactPerson1Title" />
+                <ScalarProperty Name="HotelContactPerson1Name" ColumnName="HotelContactPerson1Name" />
+                <ScalarProperty Name="HotelContactPerson1Phone" ColumnName="HotelContactPerson1Phone" />
+                <ScalarProperty Name="HotelContactPerson1Email" ColumnName="HotelContactPerson1Email" />
+                <ScalarProperty Name="HotelContactPerson2Title" ColumnName="HotelContactPerson2Title" />
+                <ScalarProperty Name="HotelContactPerson2Name" ColumnName="HotelContactPerson2Name" />
+                <ScalarProperty Name="HotelContactPerson2Phone" ColumnName="HotelContactPerson2Phone" />
+                <ScalarProperty Name="HotelContactPerson2Email" ColumnName="HotelContactPerson2Email" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="HotelBonus" ColumnName="HotelBonus" />
+                <ScalarProperty Name="RecorderDate" ColumnName="RecorderDate" />
+                <ScalarProperty Name="RecorderUser" ColumnName="RecorderUser" />
+                <ScalarProperty Name="ModifierDate" ColumnName="ModifierDate" />
+                <ScalarProperty Name="ModifierUser" ColumnName="ModifierUser" />
+                <ScalarProperty Name="HotelPic" ColumnName="HotelPic" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="TYO_BookersModel.Messages">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="PKID" ColumnName="PKID" />
+                <ScalarProperty Name="FK_ReservationID" ColumnName="FK_ReservationID" />
+                <ScalarProperty Name="FK_HotelID" ColumnName="FK_HotelID" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="Reciever" ColumnName="Reciever" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Files" ColumnName="Files" />
+                <ScalarProperty Name="ilgili" ColumnName="ilgili" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReservationRooms">
+            <EntityTypeMapping TypeName="TYO_BookersModel.ReservationRooms">
+              <MappingFragment StoreEntitySet="ReservationRooms">
+                <ScalarProperty Name="PKID" ColumnName="PKID" />
+                <ScalarProperty Name="FKReservationID" ColumnName="FKReservationID" />
+                <ScalarProperty Name="FKHotelID" ColumnName="FKHotelID" />
+                <ScalarProperty Name="FKHotelRoomID" ColumnName="FKHotelRoomID" />
+                <ScalarProperty Name="AdultCount" ColumnName="AdultCount" />
+                <ScalarProperty Name="ChildCount" ColumnName="ChildCount" />
+                <ScalarProperty Name="InfantCount" ColumnName="InfantCount" />
+                <ScalarProperty Name="BonusPoints" ColumnName="BonusPoints" />
+                <ScalarProperty Name="RecorderDate" ColumnName="RecorderDate" />
+                <ScalarProperty Name="RecorderUser" ColumnName="RecorderUser" />
+                <ScalarProperty Name="ModifierDate" ColumnName="ModifierDate" />
+                <ScalarProperty Name="ModifierUser" ColumnName="ModifierUser" />
+                <ScalarProperty Name="RoomStatus" ColumnName="RoomStatus" />
+                <ScalarProperty Name="CheckinDate" ColumnName="CheckinDate" />
+                <ScalarProperty Name="CheckoutDate" ColumnName="CheckoutDate" />
+                <ScalarProperty Name="PromotionPoints" ColumnName="PromotionPoints" />
+                <ScalarProperty Name="RoomCount" ColumnName="RoomCount" />
+                <ScalarProperty Name="ServiceResult" ColumnName="ServiceResult" />
+                <ScalarProperty Name="StatusUpdateDate" ColumnName="StatusUpdateDate" />
+                <ScalarProperty Name="MatchByName" ColumnName="MatchByName" />
+                <ScalarProperty Name="MaxAdult" ColumnName="MaxAdult" />
+                <ScalarProperty Name="MaxChild" ColumnName="MaxChild" />
+                <ScalarProperty Name="MaxInfant" ColumnName="MaxInfant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="TYO_BookersModel.Reservations">
+              <MappingFragment StoreEntitySet="Reservations">
+                <ScalarProperty Name="PKID" ColumnName="PKID" />
+                <ScalarProperty Name="FKCompanyID" ColumnName="FKCompanyID" />
+                <ScalarProperty Name="FKBookerID" ColumnName="FKBookerID" />
+                <ScalarProperty Name="FKHotelID" ColumnName="FKHotelID" />
+                <ScalarProperty Name="FKOperatorID" ColumnName="FKOperatorID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="VoucherNo" ColumnName="VoucherNo" />
+                <ScalarProperty Name="RoomCount" ColumnName="RoomCount" />
+                <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+                <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
+                <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
+                <ScalarProperty Name="ReservationStatus" ColumnName="ReservationStatus" />
+                <ScalarProperty Name="RecorderDate" ColumnName="RecorderDate" />
+                <ScalarProperty Name="RecorderUser" ColumnName="RecorderUser" />
+                <ScalarProperty Name="ModifierDate" ColumnName="ModifierDate" />
+                <ScalarProperty Name="ModifierUser" ColumnName="ModifierUser" />
+                <ScalarProperty Name="TotalPoints" ColumnName="TotalPoints" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="TotalPromotionPoints" ColumnName="TotalPromotionPoints" />
+                <ScalarProperty Name="ExtraPayment" ColumnName="ExtraPayment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

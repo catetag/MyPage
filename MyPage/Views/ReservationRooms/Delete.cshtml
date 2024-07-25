@@ -1,0 +1,201 @@
+﻿@model MyPage.Models.ReservationRooms
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ReservationRooms</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FKReservationID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKReservationID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKHotelID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKHotelID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKHotelRoomID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKHotelRoomID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdultCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdultCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChildCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChildCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InfantCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InfantCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BonusPoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BonusPoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecorderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecorderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecorderUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecorderUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckinDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckinDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckoutDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckoutDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PromotionPoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PromotionPoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceResult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceResult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusUpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusUpdateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchByName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchByName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxAdult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxAdult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxChild)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxChild)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxInfant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxInfant)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MyPage.Models.Answers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Edit Selection
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FK_MessageID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Files)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecordedDate)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+            <td> 
+                <ul>
+                          <li>@Html.ActionLink("Edit", "Edit", new { id = item.PKID }) </li>
+                          <li>@Html.ActionLink("Details", "Details", new { id = item.PKID }) </li>
+                          <li>@Html.ActionLink("Delete", "Delete", new { id = item.PKID })</li>
+                </ul>
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FK_MessageID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Files)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecordedDate)
+        </td>
+       
+    </tr>
+}
+
+</table>

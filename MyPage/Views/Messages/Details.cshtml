@@ -1,0 +1,99 @@
+﻿@model MyPage.Models.Messages
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Messages</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FK_ReservationID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FK_ReservationID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FK_HotelID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FK_HotelID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reciever)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reciever)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Files)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Files)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilgili)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilgili)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecordDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecordDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PKID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

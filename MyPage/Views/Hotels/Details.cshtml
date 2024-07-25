@@ -1,0 +1,267 @@
+﻿@model MyPage.Models.Hotels
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hotels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKHotelGroupCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKHotelGroupCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobilePhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobilePhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelGeneralManagerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelGeneralManagerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelGeneralManagerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelGeneralManagerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelGeneralManagerPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelGeneralManagerPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelContactPerson1Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelContactPerson1Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelContactPerson1Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelContactPerson1Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelContactPerson1Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelContactPerson1Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelContactPerson1Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelContactPerson1Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelContactPerson2Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelContactPerson2Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelContactPerson2Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelContactPerson2Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelContactPerson2Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelContactPerson2Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelContactPerson2Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelContactPerson2Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelBonus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelBonus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecorderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecorderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecorderUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecorderUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotelPic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HotelPic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SortOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SortOrder)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PKID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

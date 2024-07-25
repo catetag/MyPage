@@ -1,0 +1,67 @@
+﻿@model MyPage.Models.Countries
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Countries</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.country_2_digit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country_2_digit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country_3_digit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country_3_digit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country_numeric_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country_numeric_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ui_language)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ui_language)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name_English)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name_English)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name_Turkce)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name_Turkce)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PKID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

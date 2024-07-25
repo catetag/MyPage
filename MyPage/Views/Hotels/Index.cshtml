@@ -1,0 +1,281 @@
+﻿@model IEnumerable<MyPage.Models.Hotels>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+@{
+    ViewBag.Title = "Hotels";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Dictionary<int, int> HotelRoomCountList = (Dictionary<int, int>)ViewBag.HotelRoomCountList;
+
+
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Edit Selection
+        </th>
+        <th>
+            ROOMS
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKHotelGroupCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobilePhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelGeneralManagerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelGeneralManagerEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelGeneralManagerPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelContactPerson1Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelContactPerson1Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelContactPerson1Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelContactPerson1Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelContactPerson2Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelContactPerson2Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelContactPerson2Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelContactPerson2Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecorderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecorderUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifierDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifierUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelPic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SortOrder)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        var modalId = "exampleModal_" + item.PKID;
+        
+
+
+        <tr>
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.PKID })"><i class="fa fa-edit"></i></a>
+                <a href="@Url.Action("Details", new { id = item.PKID })"><i class="bi bi-clipboard2"></i></a>
+                <a href="@Url.Action("Delete", new { id = item.PKID })"><i class="bi bi-trash3"></i></a>
+
+            </td>
+            
+
+            <td>               
+                    <a  data-toggle="modal" data-target="#@modalId" href="#" onclick="updateIframe('@Url.Action("RoomsInHotels", "HotelRooms", new { id = item.PKID })', '@modalId'); return false;">
+                        @HotelRoomCountList[item.PKID]
+                    </a>              
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelName)
+            </td>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="@modalId" tabindex="-1" aria-labelledby="@modalId + 'Label'" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" style="max-width: 80%;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="@modalId + 'Label'">Otel ayrıntıları @Html.DisplayFor(modelItem => item.HotelName)</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <iframe id="contentIframe_@item.PKID" style="width:100%; height:500px;" frameborder="0"></iframe>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+            <script>
+                function updateIframe(url, modalId) {
+                    document.querySelector('#' + modalId + ' iframe').src = url;
+                }
+            </script>
+            <td>
+
+                <input type="checkbox" checked="@(item.Active == true)">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FKHotelGroupCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a href=@Html.DisplayFor(modelItem => item.WebAddress) target="_blank">@Html.DisplayFor(modelItem => item.WebAddress)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobilePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelGeneralManagerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelGeneralManagerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelGeneralManagerPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelContactPerson1Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelContactPerson1Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelContactPerson1Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelContactPerson1Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelContactPerson2Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelContactPerson2Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelContactPerson2Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelContactPerson2Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelBonus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecorderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecorderUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifierDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifierUser)
+            </td>
+            <td>
+
+                @{
+                    var hotelPic = item.HotelPic as string;
+                    if (!string.IsNullOrEmpty(hotelPic) && hotelPic.Length > 40)
+                    {
+                        hotelPic = hotelPic.Substring(0, 40);
+                    }
+                }
+
+                @Html.DisplayFor(modelItem => hotelPic)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortOrder)
+            </td>
+
+
+        </tr>
+    }
+
+</table>

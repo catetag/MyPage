@@ -1,0 +1,185 @@
+﻿@model MyPage.Models.Reservations
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Reservations</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FKCompanyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKCompanyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKBookerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKBookerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKHotelID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKHotelID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKOperatorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKOperatorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VoucherNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VoucherNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckInDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckInDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckOutDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckOutDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReservationStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReservationStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecorderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecorderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecorderUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecorderUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPromotionPoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPromotionPoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtraPayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtraPayment)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
