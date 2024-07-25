@@ -10,6 +10,8 @@ using System.Web.Mvc;
 
 namespace MyPage.Controllers
 {
+
+    //hello world
     public class BaseController : Controller
     {
 
@@ -33,17 +35,5 @@ namespace MyPage.Controllers
 
             return returnValue;
         }
-
-       
-       
-
-
-
-
-
-        // GET: Base
-
-
-
     }
 }
