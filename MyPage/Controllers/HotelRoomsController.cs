@@ -18,7 +18,7 @@ namespace MyPage.Controllers
         {
             var hotelRooms = db.HotelRooms.Where(x => x.FKHotelID == id).ToList();
 
-            return View(hotelRooms); //bu bir testtttttttttttttttttttttt4444444444
+            return View(hotelRooms); //bu bir testtttttttttttttttttttttt5555555555555
         }
         public ActionResult Index()
         {
