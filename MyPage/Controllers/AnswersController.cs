@@ -14,7 +14,7 @@ namespace MyPage.Controllers
     {
 
         // GET: Answers
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             return View(db.Answers.ToList());
         }
