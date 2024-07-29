@@ -39,14 +39,14 @@
 
                     <!-- Nav Item - Dashboard -->
                     <!--  <li class="nav-item active">
-         <a class="nav-link" href="~/Views\Home\test.html">
-             <i class="fas fa-fw fa-tachometer-alt"></i>
-             <span>Dashboard</span>
-         </a>
-     </li>
+            <a class="nav-link" href="~/Views\Home\test.html">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
 
-     <!-- Divider -->
-<li><hr class="sidebar-divider"></li>
+        <!-- Divider -->
+                <li><hr class="sidebar-divider"></li>
 
                 <!-- Heading -->
                 <li>
@@ -59,32 +59,43 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                        aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
-                        <span>Oteller</span>
+                        <span>Hotels</span>
                     </a>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Components:</h6>
-                            <a class="collapse-item" href="@Url.Action("Index","HotelRooms")">HotelRooms</a>
                             <a class="collapse-item" href="@Url.Action("Index","Hotels")">Hotels</a>
+                            <a class="collapse-item" href="@Url.Action("Index","HotelRooms")">HotelRooms</a>
                         </div>
                     </div>
                 </li>
-
-                <!-- Nav Item - Utilities Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                       aria-expanded="true" aria-controls="collapseUtilities">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReservations"
+                       aria-expanded="true" aria-controls="collapseReservations">
                         <i class="fas fa-fw fa-wrench"></i>
-                        <span>Otel ayrıntıları</span>
+                        <span>Reservastions</span>
                     </a>
-                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    <div id="collapseReservations" class="collapse" aria-labelledby="headingUtilities"
                          data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Otel bilgileri:</h6>
+                            <a class="collapse-item" href="@Url.Action("Index","Reservations")">Reservations</a>
+                            <a class="collapse-item" href="@Url.Action("Index","ReservationRooms")">Reservation Rooms</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Nav Item - Utilities Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDefinitions"
+                       aria-expanded="true" aria-controls="collapseDefinitions">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Definitions</span>
+                    </a>
+                    <div id="collapseDefinitions" class="collapse" aria-labelledby="headingUtilities"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            
                             <a class="collapse-item" href="@Url.Action("Index","Bookers")">Bokers</a>
                             <a class="collapse-item" href="@Url.Action("Index","Companies")">Companies</a>
                             <a class="collapse-item" href="@Url.Action("Index","Countries")">Countries</a>
-                            <a class="collapse-item" href="@Url.Action("Index","ReservationRooms")">Reservation Rooms</a>
                         </div>
                     </div>
                 </li>
