@@ -28,12 +28,16 @@ namespace MyPage.Controllers
                 int hotelRoomCount = hotelRoomList.Count();
                 returnValue.Add(hotel.PKID, hotelRoomCount);
                 
-                 
-                
             }
 
 
             return returnValue;
+        }
+        public List<Countries> getAllCountries() 
+        {
+            var allCountries = db.Countries.ToList();
+
+            return allCountries;
         }
     }
 }
