@@ -17,7 +17,7 @@ namespace MyPage.Controllers
 
         public TYO_BookersEntities db = new TYO_BookersEntities();
                
-
+        //testtttttttttttt
         public Dictionary<int,int> getHotelRoomCounts()
         {
             Dictionary<int, int> returnValue = new Dictionary<int, int>();
