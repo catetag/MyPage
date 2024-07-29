@@ -9,9 +9,10 @@
 <table class="table">
     <tr>
         <th>
+            
             @Html.DisplayNameFor(model => model.Name_English)
         </th>
-        <th>
+        <th>            
             @Html.DisplayNameFor(model => model.Name_Turkce)
         </th>        
         <th>
@@ -34,7 +35,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name_Turkce)
-        <td>
+        </td>
        
         <td>
             @Html.DisplayFor(modelItem => item.country_2_digit)
@@ -45,9 +46,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.country_numeric_code)
         </td>
-        <td>
-
-        </td>
+        
     </tr>
 }
 

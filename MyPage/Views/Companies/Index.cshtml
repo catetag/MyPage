@@ -19,9 +19,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Active)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FKCommunityID)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
@@ -92,11 +90,13 @@
             @Html.DisplayFor(modelItem => item.CompanyName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FKCommunityID)
-        </td>
+
+            active:<input type="checkbox" checked="@(item.Active == true)">
+            passive:<input type="checkbox" checked="@(item.Active == false)"><br />
+            not set:<input type="checkbox" checked="@(item.Active == null)">
+
+
+        </td>       
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
