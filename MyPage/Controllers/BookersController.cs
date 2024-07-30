@@ -13,12 +13,15 @@ namespace MyPage.Controllers
     public class BookersController : BaseController
     {
 
+       
 
         // GET: Bookers
         public ActionResult Index()
         {
-            ViewBag.hotelrooms = hotelrooms();
-            return View(db.Bookers.ToList().Take(20));
+            
+
+            
+            return View(db.Bookers.ToList());
         }
 
         // GET: Bookers/Details/5
@@ -39,6 +42,7 @@ namespace MyPage.Controllers
         // GET: Bookers/Create
         public ActionResult Create()
         {
+                
             return View();
         }
 

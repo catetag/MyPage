@@ -1,17 +1,24 @@
-﻿@model MyPage.Models.Bookers
+﻿
+@model MyPage.Models.Bookers
+
+
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    List<string> hotelrooms = (List<string>)ViewBag.hotelrooms;
+    List<string> companiesList = (List<string>)ViewBag.companiesList;
 }
 
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Bookers</h4>
         <hr />
@@ -19,8 +26,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FKCompanyID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">        
-                    @hotelrooms
+                <div class="checkbox">
+
                 </div>
                 @Html.EditorFor(model => model.FKCompanyID, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FKCompanyID, "", new { @class = "text-danger" })
@@ -28,8 +35,10 @@
         </div>
 
         <div class="form-group">
+
             @Html.LabelFor(model => model.HotelGroupCode, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                @companiesList
                 @Html.EditorFor(model => model.HotelGroupCode, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.HotelGroupCode, "", new { @class = "text-danger" })
             </div>
@@ -134,24 +143,20 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RecorderDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RecorderDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RecorderDate, "", new { @class = "text-danger" })
-            </div>
+        @Html.LabelFor(model => model.RecorderDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @DateTime.Now           
+           </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.RecorderUser, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RecorderUser, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RecorderUser, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            
+
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.ModifierDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+
                 @Html.EditorFor(model => model.ModifierDate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ModifierDate, "", new { @class = "text-danger" })
             </div>
@@ -254,11 +259,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
-            </div>
+
+            <fieldset>
+                <h6>Select your gender</h6>
+                <label for="radio-male">Male</label>
+                @Html.RadioButtonFor(model => model.Gender, "Male", new { id = "radio-male" })
+                <label for="radio-female">Female</label>
+                @Html.RadioButtonFor(model => model.Gender, "Female", new { id = "radio-female" })
+                <label for="radio-prefer-not-to-specify">Prefer not to specify</label>
+                @Html.RadioButtonFor(model => model.Gender, "Prefer not to specify", new { id = "radio-prefer-not-to-specify" })
+
+            </fieldset>
         </div>
 
         <div class="form-group">
@@ -282,3 +293,4 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+

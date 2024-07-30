@@ -2,10 +2,12 @@
 using MyPage.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services;
 
 
 
@@ -33,21 +35,8 @@ namespace MyPage.Controllers
 
             return returnValue;
         }
-        public List<string> hotelrooms()
-        {
-            var companyNames = new List<string>();
 
-            foreach (var booker in db.Bookers)
-            {
-                var companyName = db.Companies.Select(x => x.CompanyName).FirstOrDefault();
+       
 
-                if (companyName != null)
-                {
-                    companyNames.Add(companyName);
-                }
-            }
-
-            return companyNames;
-        }
     }
 }
