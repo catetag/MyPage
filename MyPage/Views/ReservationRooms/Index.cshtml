@@ -85,11 +85,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            <ul>
-                <li>@Html.ActionLink("Edit", "Edit", new { id = item.PKID })</li>
-                <li>@Html.ActionLink("Details", "Details", new { id = item.PKID })</li>
-                <li>@Html.ActionLink("Delete", "Delete", new { id = item.PKID })</li>
-            </ul>            
+            <a href="@Url.Action("Edit", new { id = item.PKID })"><i class="fa fa-edit"></i></a>
+            <a href="@Url.Action("Details", new { id = item.PKID })"><i class="bi bi-clipboard2"></i></a>
+            <a href="@Url.Action("Delete", new { id = item.PKID })"><i class="bi bi-trash3"></i></a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FKReservationID)
