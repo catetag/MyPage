@@ -12,12 +12,13 @@ namespace MyPage.Controllers
 {
     public class BookersController : BaseController
     {
-     
+
 
         // GET: Bookers
         public ActionResult Index()
         {
-            return View(db.Bookers.ToList());
+            ViewBag.hotelrooms = hotelrooms();
+            return View(db.Bookers.ToList().Take(20));
         }
 
         // GET: Bookers/Details/5

@@ -11,11 +11,17 @@ using MyPage.Models;
 namespace MyPage.Controllers
 {
     public class ReservationRoomsController : BaseController
-    {        
+    {
         // GET: ReservationRooms
         public ActionResult Index()
         {
-            return View(db.ReservationRooms.ToList());
+            using (var dbContext = new TYO_BookersEntities())
+            {
+                // çok veri geldiğinden site yavaşlıyor geçici
+                var data = dbContext.ReservationRooms.Take(100).ToList();
+
+                return View(data);
+            }
         }
 
         // GET: ReservationRooms/Details/5

@@ -2,6 +2,7 @@
 using MyPage.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,9 +17,9 @@ namespace MyPage.Controllers
     {
 
         public TYO_BookersEntities db = new TYO_BookersEntities();
-               
-        //testtttttttttttt
-        public Dictionary<int,int> getHotelRoomCounts()
+
+
+        public Dictionary<int, int> getHotelRoomCounts()
         {
             Dictionary<int, int> returnValue = new Dictionary<int, int>();
 
@@ -27,17 +28,26 @@ namespace MyPage.Controllers
                 var hotelRoomList = db.HotelRooms.Where(x => x.FKHotelID == hotel.PKID).ToList();
                 int hotelRoomCount = hotelRoomList.Count();
                 returnValue.Add(hotel.PKID, hotelRoomCount);
-                
             }
 
 
             return returnValue;
         }
-        public List<Countries> getAllCountries() 
+        public List<string> hotelrooms()
         {
-            var allCountries = db.Countries.ToList();
+            var companyNames = new List<string>();
 
-            return allCountries;
+            foreach (var booker in db.Bookers)
+            {
+                var companyName = db.Companies.Select(x => x.CompanyName).FirstOrDefault();
+
+                if (companyName != null)
+                {
+                    companyNames.Add(companyName);
+                }
+            }
+
+            return companyNames;
         }
     }
 }
