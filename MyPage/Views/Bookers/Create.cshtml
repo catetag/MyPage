@@ -9,11 +9,6 @@
     List<string> companiesList = (List<string>)ViewBag.companiesList;
 }
 
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
-<h2>Create</h2>
 
 @using (Html.BeginForm())
 {
@@ -33,99 +28,13 @@
                 @Html.ValidationMessageFor(model => model.FKCompanyID, "", new { @class = "text-danger" })
             </div>
         </div>
+               
 
-
-        <div class="form-group">
-
-
-
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">                
-                <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
-                <link rel="stylesheet" href="/resources/demos/style.css">                
-                <script>
-                    $(function () {
-                        var availableTags = [
-                            "ActionScript",
-                            "AppleScript",
-                            "Asp",
-                            "BASIC",
-                            "C",
-                            "C++",
-                            "Clojure",
-                            "COBOL",
-                            "ColdFusion",
-                            "Erlang",
-                            "Fortran",
-                            "Groovy",
-                            "Haskell",
-                            "Java",
-                            "JavaScript",
-                            "Lisp",
-                            "Perl",
-                            "PHP",
-                            "Python",
-                            "Ruby",
-                            "Scala",
-                            "Scheme"
-                        ];
-                        $("#tags").autocomplete({
-                            source: availableTags
-                        });
-                    });
-                </script>
-           
-
-                <div class="ui-widget">
-                    <label for="tags">Tags: </label>
-                    <input id="tags">
-                </div>
-
-
-
-
-        <script>
-            $(document).ready(function) {
-                $("#Title").autocomplete({
-
-                    source: function (request, response) {
-
-                        $.ajax({
-                            url: "/Base/Create1",
-                            type: "POST",
-                            dataType: "json",
-                            data: { Prefix: request.term },
-                            success: function (data) {
-                                response($.map(data, function (item) {
-                                    return { label: item.Title, value: item.Title }
-
-                                }))
-
-                            }
-
-
-
-                        })
-
-                    },
-                    messages: {
-                        noResults: "", results: ""
-                    }
-
-                });
-
-            };
-
-
-        </script>
-
-        <label asp-for="Title" class="control-label"></label>
-        <label asp-for="Title" class="form-control"></label>
-        <span asp-validation-for="Title" class="text-danger"></span>
-
-
-        </div>
-
+            <div class="ui-widget">
+                <label for="tags">Tags: </label>
+                <input id="tags">
+            </div>
+        
         <div class="form-group">
             @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -225,13 +134,13 @@
         </div>
 
         <div class="form-group">
-        @Html.LabelFor(model => model.RecorderDate, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @DateTime.Now           
-           </div>
+            @Html.LabelFor(model => model.RecorderDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @DateTime.Now
+            </div>
         </div>
 
-            
+
 
 
 
@@ -376,3 +285,34 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+<script>
+    $(function () {
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $("#tags").autocomplete({
+            source: availableTags
+        });
+    });
+</script>
