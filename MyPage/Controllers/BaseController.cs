@@ -11,6 +11,7 @@ using System.Web.Services;
 
 
 
+
 namespace MyPage.Controllers
 {
 
@@ -36,6 +37,13 @@ namespace MyPage.Controllers
             return returnValue;
         }
 
+        [HttpPost]
+        public JsonResult Create1(string Prefix)
+        {
+
+            var HotelList = (from N in  db.Bookers.ToList() where N.Country.StartsWith(Prefix) select new {N.Country});
+            return Json(HotelList);
+        }
        
 
     }
