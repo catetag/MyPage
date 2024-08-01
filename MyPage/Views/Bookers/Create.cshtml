@@ -3,8 +3,7 @@
 @{
     ViewBag.Title = "Create";
 
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    List<string> companiesList = (List<string>)ViewBag.companiesList;
+    Layout = "~/Views/Shared/_Layout.cshtml";    
     var liste = ViewBag.liste as List<string>;
 }
 
@@ -28,21 +27,24 @@
     </div>
 
     
-    
-    <select name="cars" id="cars">
-        @if (liste != null)
-        {
-            foreach (var name in liste)
+    <div class="form-group">
+        Country:
+        <select>
+            @if (liste != null)
             {
-                <option value="volvo">@name</option>
+                foreach (var Country in liste)
+                {
+                    <option>@Country</option>
+                }
             }
-        }
-        else
-        {
-            <li>No products found.</li>
-        }
-        
-    </select>
+            else
+            {
+                <li>No products found.</li>
+            }
+
+        </select>
+    </div>
+  
 
 
    

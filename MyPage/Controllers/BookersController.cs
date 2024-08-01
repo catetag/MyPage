@@ -49,10 +49,8 @@ namespace MyPage.Controllers
         // GET: Bookers/Create
         public ActionResult Create()
         {
-            var liste = db.Bookers.Select(p => p.AgencyCountry).ToList();
 
-            ViewBag.liste = liste;
-
+            countryList();
             return View();
         }
 

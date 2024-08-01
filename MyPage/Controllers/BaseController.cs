@@ -37,7 +37,13 @@ namespace MyPage.Controllers
             return returnValue;
         }
 
-       
+       public ActionResult countryList() {
+
+            var liste = db.Companies.Select(p => p.City).ToList();
+            ViewBag.liste = liste;
+
+            return View();
+        } 
 
 
     }
