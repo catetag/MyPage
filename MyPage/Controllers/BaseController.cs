@@ -15,7 +15,7 @@ using System.Web.Services;
 namespace MyPage.Controllers
 {
 
-    
+
     public class BaseController : Controller
     {
 
@@ -37,14 +37,41 @@ namespace MyPage.Controllers
             return returnValue;
         }
 
-       public ActionResult countryList() {
+        public List<string> countryList()
+        {
 
             var liste = db.Companies.Select(p => p.City).ToList();
             ViewBag.liste = liste;
 
-            return View();
-        } 
+            return liste;
+        }
+
+        public Dictionary<int, List<string>> GetCompanyList()
+        {
+
+            Dictionary<int, List<String>> retValue = new Dictionary<int, List<string>>();
 
 
+          
+            foreach (var test in db.Companies)
+            {
+                var CompanyValue = db.Companies.Select(x => x.PKID);
+
+                var CompanyName = db.Companies
+                   .Where(x => CompanyValue.Contains(x.PKID))
+                   .Select(x => x.CompanyName)
+                   .ToList();
+
+
+                retValue.Add(CompanyValue, CompanyName);
+
+            }
+
+
+
+            return retValue;
+        }
+
+            
+        }
     }
-}

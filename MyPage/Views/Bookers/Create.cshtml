@@ -3,8 +3,9 @@
 @{
     ViewBag.Title = "Create";
 
-    Layout = "~/Views/Shared/_Layout.cshtml";    
+    Layout = "~/Views/Shared/_Layout.cshtml";
     var liste = ViewBag.liste as List<string>;
+    var CompanyList = ViewBag.CompanyNameList as Dictionary<int, string>;
 }
 
 @using (Html.BeginForm())
@@ -25,29 +26,35 @@
             @Html.ValidationMessageFor(model => model.FKCompanyID, "", new { @class = "text-danger" })
         </div>
     </div>
-
     
+
     <div class="form-group">
-        Country:
-        <select>
-            @if (liste != null)
-            {
-                foreach (var Country in liste)
-                {
-                    <option>@Country</option>
-                }
-            }
-            else
-            {
-                <li>No products found.</li>
-            }
+        <div class="col-md-10">
+            Country: <br />
+                     <select>
+                         @if (ViewBag.CountryList != null)
+                         {
+                             var countryList = ViewBag.CountryList as Dictionary<int, string>;
 
-        </select>
+                             if (countryList != null)
+                             {
+                                 foreach (var country in CompanyList)
+                                 {
+                                     <option value="@country.Key">@country.Value</option>
+                                 }
+                             }
+                         }
+                         else
+                         {
+                             <option>No countries found.</option>
+                         }
+                     </select>
+        </div>
     </div>
-  
 
 
-   
+
+
 
     <div class="form-group">
         @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -267,12 +274,13 @@
 
         <fieldset>
             <h6>Select your gender</h6>
-            <label for="radio-male">Male</label>
             @Html.RadioButtonFor(model => model.Gender, "Male", new { id = "radio-male" })
-            <label for="radio-female">Female</label>
+            <label for="radio-male">Male</label>
             @Html.RadioButtonFor(model => model.Gender, "Female", new { id = "radio-female" })
-            <label for="radio-prefer-not-to-specify">Prefer not to specify</label>
+            <label for="radio-female">Female</label>
             @Html.RadioButtonFor(model => model.Gender, "Prefer not to specify", new { id = "radio-prefer-not-to-specify" })
+            <label for="radio-prefer-not-to-specify">Prefer not to specify</label>
+
 
         </fieldset>
     </div>
@@ -281,7 +289,17 @@
         @Html.LabelFor(model => model.ConfirmKVVK, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
-                @Html.EditorFor(model => model.ConfirmKVVK)
+
+
+                @if (Model != null)
+                {
+                    @Html.CheckBox("ConfirmKVVK", Model.ConfirmKVVK ?? false)
+                }
+                else
+                {
+                    @Html.CheckBox("ConfirmKVVK", false)
+                }
+
                 @Html.ValidationMessageFor(model => model.ConfirmKVVK, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -298,35 +316,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-<script>
-    $(function () {
-        var availableTags = [
-            "ActionScript",
-            "AppleScript",
-            "Asp",
-            "BASIC",
-            "C",
-            "C++",
-            "Clojure",
-            "COBOL",
-            "ColdFusion",
-            "Erlang",
-            "Fortran",
-            "Groovy",
-            "Haskell",
-            "Java",
-            "JavaScript",
-            "Lisp",
-            "Perl",
-            "PHP",
-            "Python",
-            "Ruby",
-            "Scala",
-            "Scheme"
-        ];
-        $("#tags").autocomplete({
-            source: availableTags
-        });
-    });
-</script>

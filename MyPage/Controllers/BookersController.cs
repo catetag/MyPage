@@ -49,7 +49,7 @@ namespace MyPage.Controllers
         // GET: Bookers/Create
         public ActionResult Create()
         {
-
+            ViewBag.CompanyNameList = GetCompanyList();
             countryList();
             return View();
         }
