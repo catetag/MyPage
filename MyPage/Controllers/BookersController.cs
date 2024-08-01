@@ -50,7 +50,7 @@ namespace MyPage.Controllers
         public ActionResult Create()
         {
             ViewBag.CompanyNameList = GetCompanyList();
-            countryList();
+            
             return View();
         }
 

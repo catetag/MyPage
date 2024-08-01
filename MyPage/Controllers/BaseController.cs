@@ -46,30 +46,12 @@ namespace MyPage.Controllers
             return liste;
         }
 
-        public Dictionary<int, List<string>> GetCompanyList()
-        {
+        public Dictionary<int, string> GetCompanyList()
+        {                   
 
-            Dictionary<int, List<String>> retValue = new Dictionary<int, List<string>>();
-
-
-          
-            foreach (var test in db.Companies)
-            {
-                var CompanyValue = db.Companies.Select(x => x.PKID);
-
-                var CompanyName = db.Companies
-                   .Where(x => CompanyValue.Contains(x.PKID))
-                   .Select(x => x.CompanyName)
-                   .ToList();
-
-
-                retValue.Add(CompanyValue, CompanyName);
-
-            }
-
-
-
+            Dictionary<int, string> retValue = db.Companies.ToDictionary(x => x.PKID, x => x.CompanyName);
             return retValue;
+
         }
 
             

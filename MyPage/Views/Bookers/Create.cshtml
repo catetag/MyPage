@@ -30,23 +30,23 @@
 
     <div class="form-group">
         <div class="col-md-10">
-            Country: <br />
+            Company: <br />
                      <select>
-                         @if (ViewBag.CountryList != null)
+                         @if (CompanyList != null)
                          {
-                             var countryList = ViewBag.CountryList as Dictionary<int, string>;
+                                
 
-                             if (countryList != null)
+                             if (CompanyList != null)
                              {
-                                 foreach (var country in CompanyList)
+                                 foreach (var company in CompanyList)
                                  {
-                                     <option value="@country.Key">@country.Value</option>
+                                     <option value="@company.Key">@company.Value</option>
                                  }
                              }
                          }
                          else
                          {
-                             <option>No countries found.</option>
+                             <option>No Company found.</option>
                          }
                      </select>
         </div>
