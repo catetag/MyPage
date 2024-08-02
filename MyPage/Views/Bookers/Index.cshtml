@@ -1,9 +1,11 @@
 ﻿@model IEnumerable<MyPage.Models.Bookers>
 
 @{
+
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-   
+
+    var GetCompanyListToBookers = ViewBag.GetCompanyListToBookers as Dictionary<int, string>;
 }
 
     
@@ -121,19 +123,47 @@
 
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FKCompanyID)
+            <select>
+                @if (item.PKID != null)
+                {
+                    foreach (var company in GetCompanyListToBookers)
+                    {
+                        if (company.Key ==  item.PKID)
+                        {
+                           <option value="@company.Key">@company.Value</option>
+                        }
+                          else 
+                        { 
+                        
+                        }
+                        
+                    }
+                }
+
+                else
+                {
+                    <option>No Company found.</option>
+                }
+            </select>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.HotelGroupCode)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Active)
+            <input type="checkbox" checked="@(item.Active == true)" disabled="disabled">
+            
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Pass)
+            
+            @{
+                if (!string.IsNullOrEmpty(item.Pass))
+                {
+                    @Html.Raw(new string('*', item.Pass.Length))
+                }
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)

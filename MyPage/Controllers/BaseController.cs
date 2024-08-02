@@ -2,6 +2,7 @@
 using MyPage.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -49,11 +50,26 @@ namespace MyPage.Controllers
         public Dictionary<int, string> GetCompanyList()
         {                   
 
+                Dictionary<int, string> retValue = db.Companies.ToDictionary(x => x.PKID, x => x.CompanyName);
+                return retValue;
+
+        }
+
+        public Dictionary<int, string> GetCompanyListToBookers()
+        {
+            //Dictionary<int, string> returnValue = new Dictionary<int, string>();
+
+            //var test1 = int.Parse(db.Bookers.Select(x => x.FKCompanyID).FirstOrDefault());
+            //var test2 = db.Companies.Where(x => test1 == x.PKID).Select(x => x.CompanyName).SingleOrDefault();
+
+            //returnValue.Add(test1, test2);
+
             Dictionary<int, string> retValue = db.Companies.ToDictionary(x => x.PKID, x => x.CompanyName);
             return retValue;
 
+
+                
         }
 
-            
-        }
+    }
     }

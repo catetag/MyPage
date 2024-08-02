@@ -119,10 +119,7 @@
                 @Html.DisplayFor(modelItem => item.SortOrder)
             </td>
             <td>
-
-                <p>Bookera Verilebiir:</p><input type="checkbox" checked="@(item.BookeraVerilebilir == true)">
-                <p>Bookera Verilemez:</p>
-                <input type="checkbox" checked="@(item.BookeraVerilebilir == false)">
+                <input type="checkbox" checked="@(item.BookeraVerilebilir ?? false)" disabled="disabled">
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MaxAdult)

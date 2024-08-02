@@ -16,16 +16,15 @@ namespace MyPage.Controllers
         public ActionResult hotelnames()
         {
            
-
-
             return View();
         }
 
         // GET: Bookers
         public ActionResult Index()
         {
-            var catagories = db.Bookers.ToList();
-            ViewBag.Categories = new SelectList(catagories, "Country");
+            ViewBag.GetCompanyListToBookers = GetCompanyListToBookers();
+            var categories = db.Bookers.Take(20).ToList();
+            ViewBag.Categories = new SelectList(categories, "Country");
 
 
             return View(db.Bookers.ToList());

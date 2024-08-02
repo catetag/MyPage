@@ -14,7 +14,6 @@ namespace MyPage.Models
     
     public partial class Hotels
     {
-        
         public int PKID { get; set; }
         public string HotelName { get; set; }
         public Nullable<bool> Active { get; set; }
