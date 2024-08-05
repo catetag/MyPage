@@ -123,28 +123,27 @@
 
         </td>
         <td>
-            <select>
-                @if (item.PKID != null)
+          
+                @if (item.PKID != null )
                 {
                     foreach (var company in GetCompanyListToBookers)
                     {
-                        if (company.Key ==  item.PKID)
+                        if (company.Key == int.Parse(item.FKCompanyID))
                         {
-                           <option value="@company.Key">@company.Value</option>
+                           <li value="@company.Key">@company.Value</li>
                         }
-                          else 
-                        { 
-                        
+                        else
+                        {
                         }
-                        
+
                     }
                 }
-
                 else
                 {
-                    <option>No Company found.</option>
+
                 }
-            </select>
+
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.HotelGroupCode)
