@@ -55,8 +55,8 @@ namespace MyPage.Controllers
 
         }
 
-        public Dictionary<int, string ?> GetCompanyListToBookers()
-        {
+        public Dictionary<int, string> GetCompanyListToBookers()
+        {            
             //Dictionary<int, string> returnValue = new Dictionary<int, string>();
 
             //var test1 = int.Parse(db.Bookers.Select(x => x.FKCompanyID).FirstOrDefault());
@@ -64,7 +64,7 @@ namespace MyPage.Controllers
 
             //returnValue.Add(test1, test2);
 
-            Dictionary<int, string?> retValue = db.Companies.ToDictionary(x => x.PKID, x => x.CompanyName);
+            Dictionary<int, string> retValue = db.Companies.ToDictionary(x => x.PKID, x => x.CompanyName);
             return retValue;
 
 
