@@ -164,7 +164,7 @@
             @{
                 if (!string.IsNullOrEmpty(item.Pass))
                 {
-                    @Html.Raw(new string('*', item.Pass.Length))
+                    @Html.Raw(new string('*', 10))
                 }
             }
         </td>

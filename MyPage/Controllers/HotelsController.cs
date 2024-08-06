@@ -54,7 +54,7 @@ namespace MyPage.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PKID,HotelName,Active,FKHotelGroupCode,Email,WebAddress,Phone,MobilePhone,HotelGeneralManagerName,HotelGeneralManagerEmail,HotelGeneralManagerPhone,HotelContactPerson1Title,HotelContactPerson1Name,HotelContactPerson1Phone,HotelContactPerson1Email,HotelContactPerson2Title,HotelContactPerson2Name,HotelContactPerson2Phone,HotelContactPerson2Email,Address1,Address2,City,State,Country,ZipCode,HotelBonus,RecorderDate,RecorderUser,ModifierDate,ModifierUser,HotelPic,SortOrder")] Hotels hotels)
+        public ActionResult Create([Bind(Include = "PKID,HotelName,Active,Email,WebAddress,Phone,HotelGeneralManagerName,HotelGeneralManagerEmail,HotelGeneralManagerPhone,HotelContactPerson1Title,HotelContactPerson1Name,HotelContactPerson1Phone,HotelContactPerson1Email,Address1,City,Country,ZipCode,HotelBonus,RecorderDate,RecorderUser,ModifierDate,ModifierUser,SortOrder")] Hotels hotels)
         {
             if (ModelState.IsValid)
             {

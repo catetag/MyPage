@@ -29,7 +29,7 @@ namespace MyPage.Models
         public string City { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
-        public Nullable<System.DateTime> RecorderDate { get; set; }
+        public Nullable<System.DateTime> RecorderDate { get; set; } = DateTime.Now;    
         public string RecorderUser { get; set; }
         public Nullable<System.DateTime> ModifierDate { get; set; }
         public string ModifierUser { get; set; }

@@ -30,9 +30,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Active)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FKHotelGroupCode)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
@@ -42,9 +40,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Phone)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MobilePhone)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.HotelGeneralManagerName)
         </th>
@@ -60,36 +56,19 @@
         <th>
             @Html.DisplayNameFor(model => model.HotelContactPerson1Name)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HotelContactPerson1Phone)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.HotelContactPerson1Email)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HotelContactPerson2Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HotelContactPerson2Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HotelContactPerson2Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HotelContactPerson2Email)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.Address1)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address2)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.City)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.State)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.Country)
         </th>
@@ -111,9 +90,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ModifierUser)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HotelPic)
-        </th>
+      
         <th>
             @Html.DisplayNameFor(model => model.SortOrder)
         </th>
@@ -175,9 +152,7 @@
 
                 <input type="checkbox" checked="@(item.Active == true)" disabled="disabled">
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FKHotelGroupCode)
-            </td>
+          
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
@@ -187,9 +162,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MobilePhone)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.HotelGeneralManagerName)
             </td>
@@ -205,36 +178,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.HotelContactPerson1Name)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HotelContactPerson1Phone)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.HotelContactPerson1Email)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HotelContactPerson2Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HotelContactPerson2Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HotelContactPerson2Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HotelContactPerson2Email)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.Address1)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address2)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.City)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.Country)
             </td>
@@ -256,19 +212,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ModifierUser)
             </td>
-            <td>
-
-                @{
-                    var hotelPic = item.HotelPic as string;
-                    if (!string.IsNullOrEmpty(hotelPic) && hotelPic.Length > 40)
-                    {
-                        hotelPic = hotelPic.Substring(0, 40);
-                    }
-                }
-
-                @Html.DisplayFor(modelItem => hotelPic)
-
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.SortOrder)
             </td>

@@ -40,7 +40,8 @@ namespace MyPage.Models
         public string Country { get; set; }
         public string ZipCode { get; set; }
         public Nullable<decimal> HotelBonus { get; set; }
-        public Nullable<System.DateTime> RecorderDate { get; set; }
+        public Nullable<System.DateTime> RecorderDate { get; set; } = DateTime.Now;
+            
         public string RecorderUser { get; set; }
         public Nullable<System.DateTime> ModifierDate { get; set; }
         public string ModifierUser { get; set; }
