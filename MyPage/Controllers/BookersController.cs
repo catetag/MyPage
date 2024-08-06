@@ -73,6 +73,7 @@ namespace MyPage.Controllers
         // GET: Bookers/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.CompanyNameList = GetCompanyList();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -92,6 +93,7 @@ namespace MyPage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PKID,FKCompanyID,HotelGroupCode,Active,Email,Pass,FirstName,LastName,Phone,MobilePhone,Address1,Address2,City,State,Country,RecorderDate,RecorderUser,ModifierDate,ModifierUser,Role,AgencyName,AgencyEmail,AgencyWebAddress,AgencyAddress,AgencyPhone,AgencyLicence,AgencyOwner,AgencyZipCode,AgencyCity,AgencyCountry,Gender,ConfirmKVVK")] Bookers bookers)
         {
+            ViewBag.CompanyNameList = GetCompanyList();
             if (ModelState.IsValid)
             {
                 db.Entry(bookers).State = EntityState.Modified;

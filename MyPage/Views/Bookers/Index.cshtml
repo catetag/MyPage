@@ -126,11 +126,22 @@
           
 
              @{ 
-                 int cid = item.FKCompanyID == null || item.FKCompanyID == "" || item.FKCompanyID == " "  ? 8 : Convert.ToInt32(item.FKCompanyID);
+
+                 int cid;
+                 if (string.IsNullOrWhiteSpace(item.FKCompanyID) || !int.TryParse(item.FKCompanyID, out cid))
+                 {
+                     cid = 8;
+                 }
 
                  bool companyExist = GetCompanyListToBookers.ContainsKey(cid);
+                 var companyName = companyExist ? GetCompanyListToBookers.Single(c => c.Key == cid).Value : "Paloma";
 
-                 var companyName = companyExist ? GetCompanyListToBookers.Single(c=>c.Key == cid).Value : "Paloma";
+
+                 // int cid = item.FKCompanyID == null || item.FKCompanyID == "" || item.FKCompanyID == " "  ? 8 : Convert.ToInt32(item.FKCompanyID);
+
+                 //bool companyExist = GetCompanyListToBookers.ContainsKey(cid);
+
+                 //var companyName = companyExist ? GetCompanyListToBookers.Single(c=>c.Key == cid).Value : "Paloma";
               }
                    
             @companyName
