@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var CompanyList = ViewBag.CompanyNameList as Dictionary<int, string>;
 }
 
 <h2>Create</h2>
@@ -15,12 +16,27 @@
     <h4>Hotels</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.HotelName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.HotelName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HotelName, "", new { @class = "text-danger" })
-        </div>
+<div class="form-group">
+
+    @using (Html.BeginForm("Create", "Hotels", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label for="HotelName">Select Company</label>
+            <select name="HotelName" class="form-control">
+                @if ( CompanyList != null)
+                {
+                    foreach (var company in CompanyList)
+                    {
+                        <option value="@company.Value">@company.Value</option>
+                    }
+                }
+                else
+                {
+                    <option>No Company found.</option>
+                }
+            </select>
+        </div>        
+    }   
     </div>
 
     <div class="form-group">

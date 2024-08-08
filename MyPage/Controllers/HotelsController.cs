@@ -46,6 +46,7 @@ namespace MyPage.Controllers
         // GET: Hotels/Create
         public ActionResult Create()
         {
+            ViewBag.CompanyNameList = GetCompanyList();
             return View();
         }
 

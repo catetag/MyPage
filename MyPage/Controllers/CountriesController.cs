@@ -12,8 +12,30 @@ namespace MyPage.Controllers
 {
     public class CountriesController : BaseController
     {
-        
+        [HttpPost]
+        public ActionResult SubmitEmail(string email, string password)
+        {
+            // Basit bir kontrol yapalım. Bu, genellikle veritabanı veya başka bir hizmetle yapılır.
+            // Örnek olarak sabit bir email ve şifre kontrolü yapıyoruz.
+            string correctEmail = "test";
+            string correctPassword = "test";
 
+            if (email == correctEmail && password == correctPassword)
+            {
+                // Eğer email ve şifre doğruysa, kullanıcıyı bir başka sayfaya yönlendiriyoruz.
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // Eğer email veya şifre yanlışsa, hata mesajı gösteriyoruz.
+                ViewBag.ErrorMessage = "Email veya şifre yanlış!";
+                return View();
+            }
+        }
+        public ActionResult login()
+        {
+            return View();
+        }
         // GET: Countries
         public ActionResult Index()
         {

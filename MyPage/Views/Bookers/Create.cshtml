@@ -18,28 +18,28 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
      
 
-    <div class="form-group">
-        <div class="col-md-10">
-            Company: <br />
-                     <select>
-                         @if (CompanyList != null)
-                         {                         
+<div class="form-group">
 
-                             if (CompanyList != null)
-                             {
-                                 foreach (var company in CompanyList)
-                                 {
-                                     <option value="@company.Key">@company.Value</option>
-                                 }
-                             }
-                         }
-                         else
-                         {
-                             <option>No Company found.</option>
-                         }
-                     </select>
-           </div>
-    </div>
+    @using (Html.BeginForm("Create", "Bookers", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label for="FKCompanyID">Select Company</label>
+            <select name="FKCompanyID" class="form-control">
+                @if (CompanyList != null)
+                {
+                    foreach (var company in CompanyList)
+                    {
+                        <option value="@company.Key">@company.Value</option>
+                    }
+                }
+                else
+                {
+                    <option>No Company found.</option>
+                }
+            </select>
+        </div>
+    }
+</div>
 
 
 
