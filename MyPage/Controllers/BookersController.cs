@@ -19,6 +19,7 @@ namespace MyPage.Controllers
             return View();
         }
 
+        [Authorize]
         // GET: Bookers
         public ActionResult Index()
         {

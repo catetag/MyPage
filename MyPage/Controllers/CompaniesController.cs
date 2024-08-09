@@ -10,10 +10,12 @@ using MyPage.Models;
 
 namespace MyPage.Controllers
 {
+        
     public class CompaniesController : BaseController
     {
 
         // GET: Companies
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Companies.ToList());

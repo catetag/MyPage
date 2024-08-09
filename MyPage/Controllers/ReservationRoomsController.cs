@@ -10,9 +10,11 @@ using MyPage.Models;
 
 namespace MyPage.Controllers
 {
+        
     public class ReservationRoomsController : BaseController
     {
         // GET: ReservationRooms
+        [Authorize]
         public ActionResult Index()
         {
             using (var dbContext = new TYO_BookersEntities())

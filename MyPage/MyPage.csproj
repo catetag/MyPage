@@ -497,6 +497,7 @@
     <Compile Include="Controllers\BookersController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
+    <Compile Include="Controllers\GuvenlikController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelRoomsController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
@@ -521,6 +522,9 @@
       <DependentUpon>TYO_BookersModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Hotels.cs">
+      <DependentUpon>TYO_BookersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Kullanıcı_Giris.cs">
       <DependentUpon>TYO_BookersModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Messages.cs">
@@ -2520,6 +2524,8 @@
     <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\HotelRooms\roomsinhotels.cshtml" />
     <Content Include="Views\Countries\login.cshtml" />
+    <Content Include="Views\Guvenlik\Login.cshtml" />
+    <Content Include="Views\Guvenlik\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

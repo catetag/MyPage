@@ -14,8 +14,9 @@ namespace MyPage.Controllers
     public class HotelsController : BaseController
 
     {
-        
+
         // GET: Hotels
+        [Authorize]
         public ActionResult Index()
         {
 

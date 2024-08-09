@@ -10,6 +10,7 @@ using MyPage.Models;
 
 namespace MyPage.Controllers
 {
+    
     public class CountriesController : BaseController
     {
         [HttpPost]
@@ -37,6 +38,7 @@ namespace MyPage.Controllers
             return View();
         }
         // GET: Countries
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Countries.ToList());

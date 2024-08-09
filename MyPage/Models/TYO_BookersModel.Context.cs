@@ -34,5 +34,6 @@ namespace MyPage.Models
         public virtual DbSet<Messages> Messages { get; set; }
         public virtual DbSet<ReservationRooms> ReservationRooms { get; set; }
         public virtual DbSet<Reservations> Reservations { get; set; }
+        public virtual DbSet<Kullanıcı_Giris> Kullanıcı_Giris { get; set; }
     }
 }

@@ -10,11 +10,13 @@ using MyPage.Models;
 
 namespace MyPage.Controllers
 {
+        
     public class MessagesController : BaseController
     {
-       
+
 
         // GET: Messages
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Messages.ToList());

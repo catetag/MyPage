@@ -10,16 +10,18 @@ using MyPage.Models;
 
 namespace MyPage.Controllers
 {
+    
     public class HotelRoomsController : BaseController
     {
 
-
+        [Authorize]
         public ActionResult roomsinhotels(int id)
         {
             var hotelRooms = db.HotelRooms.Where(x => x.FKHotelID == id).ToList();
 
             return View(hotelRooms); 
         }
+        [Authorize]
         public ActionResult Index()
         {
             
