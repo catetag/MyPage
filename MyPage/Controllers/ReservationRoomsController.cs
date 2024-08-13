@@ -20,7 +20,7 @@ namespace MyPage.Controllers
             using (var dbContext = new TYO_BookersEntities())
             {
                 // çok veri geldiğinden site yavaşlıyor geçici
-                var data = dbContext.ReservationRooms.Take(100).ToList();
+                var data = dbContext.ReservationRooms.ToList().Take(20);
 
                 return View(data);
             }

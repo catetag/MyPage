@@ -16,7 +16,7 @@ namespace MyPage.Models
         // GET: Reservations
         public ActionResult Index()
         {
-            return View(db.Reservations.ToList());
+            return View(db.Reservations.ToList().Take(20));
         }
 
         // GET: Reservations/Details/5
