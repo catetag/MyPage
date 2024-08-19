@@ -2523,7 +2523,6 @@
     <Content Include="Views\Reservations\Edit.cshtml" />
     <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\HotelRooms\roomsinhotels.cshtml" />
-    <Content Include="Views\Countries\login.cshtml" />
     <Content Include="Views\Guvenlik\Login.cshtml" />
     <Content Include="Views\Guvenlik\Index.cshtml" />
   </ItemGroup>
