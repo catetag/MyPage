@@ -2525,6 +2525,7 @@
     <Content Include="Views\HotelRooms\roomsinhotels.cshtml" />
     <Content Include="Views\Guvenlik\Login.cshtml" />
     <Content Include="Views\Guvenlik\Index.cshtml" />
+    <Content Include="Views\sql.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
